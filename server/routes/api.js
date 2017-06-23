@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const post = require('../models/post');
 
-const db = "mongodb://geekankit318:ashushaan318@ds155651.mlab.com:55651/codepost";
+const db = "mongodb://dache2:codeposts101!@ds131621.mlab.com:31621/codepostnet";
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, function(err) {
