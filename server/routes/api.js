@@ -15,6 +15,19 @@ mongoose.connect(db, function(err) {
 router.get('/posts', function(req, res) {
     console.log('Requesting posts');
     post.find({})
+        .exec(function(err, post) {
+            if (err) {
+                console.log('Error getting the post');
+            } else {
+                res.json(post);
+                console.log(post);
+            }
+        });
+});
+
+router.get('/details/:id', function(req, res) {
+    console.log('Requesting post');
+    post.find(req.params.id)
         .exec(function(err, posts) {
             if (err) {
                 console.log('Error getting the posts');
