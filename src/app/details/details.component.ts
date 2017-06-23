@@ -20,8 +20,9 @@ export class DetailsComponent implements OnInit {
       let id = params['id'];
 
       this._postService.getPost(id)
-        .subscribe(res => this.post = res);
-    }
+        .subscribe(res=>this.post = res);
+        
+    })
   }
 
 }

@@ -19,4 +19,6 @@ export class PostService {
       .map(result => this.result = result.json());
   }
 
+
+
 }

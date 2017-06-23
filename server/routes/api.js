@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const post = require('../models/post');
 
-const db = "mongodb://dache2:codeposts101!@ds131621.mlab.com:31621/codepostnet";
+const db = "mongodb://geekankit318:ashushaan318@ds155651.mlab.com:55651/codepost";
 
 mongoose.Promise = global.Promise;
 mongoose.connect(db, function(err) {
@@ -15,25 +15,23 @@ mongoose.connect(db, function(err) {
 router.get('/posts', function(req, res) {
     console.log('Requesting posts');
     post.find({})
-        .exec(function(err, post) {
+        .exec(function(err, posts) {
             if (err) {
-                console.log('Error getting the post');
+                console.log('Error getting the posts');
             } else {
-                res.json(post);
-                console.log(post);
+                res.json(posts);
             }
         });
 });
 
 router.get('/details/:id', function(req, res) {
     console.log('Requesting post');
-    post.find(req.params.id)
-        .exec(function(err, posts) {
+    post.findById(req.params.id)
+        .exec(function(err, post) {
             if (err) {
-                console.log('Error getting the posts');
+                console.log('Error getting the post');
             } else {
-                res.json(posts);
-                console.log(posts);
+                res.json(post);
             }
         });
 });
